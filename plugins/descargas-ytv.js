@@ -28,11 +28,7 @@ try {
 let v = youtubeLink;
 const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
 const dataRET = await dataRE.json();
-let n = dataRET.response.title || 'error'
-let n2 = dataRET.response.link
-let n3 = dataRET.response.size
-let n4 = dataRET.response.thumbnail
-await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
 } catch (E3) {
 //console.log('Error 3 ' + E3)   
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
