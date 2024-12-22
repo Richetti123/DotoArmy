@@ -72,7 +72,7 @@ let item = getUrl.formats[i];
 if (item.container == 'mp4' && item.hasVideo == true && item.hasAudio == true) {
 let { qualityLabel, contentLength } = item;
 let bytes = await bytesToSize(contentLength);
-result[i] = { video: item.url, quality: qualityLabel, size: bytes }}};
+result[i] = { video: item.url, quality: '480p', size: bytes }}};
 let resultFix = result.filter(x => x.video != undefined && x.size != undefined && x.quality != undefined) 
 let tiny = await axios.get(`https://tinyurl.com/api-create.php?url=${resultFix[0].video}`);
 let tinyUrl = tiny.data;
