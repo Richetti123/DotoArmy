@@ -79,6 +79,7 @@ await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName
 }  
 if (command == 'play2') {
 try {
+let q = '720p'
 const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${yt_play[0].url}`);
 const dataRET = await dataRE.json();
 await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
