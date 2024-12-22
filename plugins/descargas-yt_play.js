@@ -82,7 +82,7 @@ try {
 const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${yt_play[0].url}`);
 const dataRET = await dataRE.json();
 console.log(dataRET)
-await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `error.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣` }, { quoted: m })
 } catch {
 } 
 }} catch {
