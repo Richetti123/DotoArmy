@@ -51,7 +51,31 @@ showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m });
 } catch {
-}
+try {
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${yt_play[0].url}`);
+const dataRET = await dataRE.json();
+await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName: `default.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
+} catch {
+try {
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${yt_play[0].url}`);
+const dataRET = await dataRE.json();
+await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, mimetype: 'audio/mpeg',
+contextInfo: {
+externalAdReply: {
+title: `Disfrute de su audio con ${wm}`,
+body: yt_play[0].title,
+thumbnailUrl: yt_play[0].thumbnail,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m });
+} catch {
+try {
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${yt_play[0].url}`);
+const dataRET = await dataRE.json();
+await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName: `default.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
+} catch {
+}}}}
 }  
 if (command == 'play2') {
 try {
