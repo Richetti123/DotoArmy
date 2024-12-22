@@ -2,6 +2,7 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
+import { ytDownload } from '../lib/y2mate.js'
 let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
 let youtubeLink = '';
