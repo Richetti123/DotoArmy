@@ -26,7 +26,7 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefi
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {
 let v = youtubeLink;
-const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${v}`);
 const dataRET = await dataRE.json();
 console.log(dataRET)
 await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
