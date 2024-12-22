@@ -25,12 +25,12 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPref
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
 try {
-const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${yt_play[0].url}`);
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${youtubeLink}`);
 const dataRET = await dataRE.json();
 await conn.sendMessage(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mpeg' });
 } catch {
 try {
-const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${yt_play[0].url}`);
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${youtubeLink}`);
 const dataRET = await dataRE.json();
 await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, mimetype: 'audio/mpeg',
 contextInfo: {
