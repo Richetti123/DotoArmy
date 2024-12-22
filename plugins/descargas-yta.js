@@ -28,14 +28,14 @@ try {
 let v = youtubeLink;
 const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
 const dataRET = await dataRE.json();
-await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName: `default.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })  
+let n = dataRET.response.title || 'error'
+await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName: `${n}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })  
 } catch {
 try {
-let searchh = await yts(youtubeLink)
-let __res = searchh.all.map(v => v).filter(v => v.type == "video")
-let infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
-let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
-conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })  
+let v = youtubeLink;
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
+const dataRET = await dataRE.json();
+await conn.sendMessage(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mpeg' });
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
