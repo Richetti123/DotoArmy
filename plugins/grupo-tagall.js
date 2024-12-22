@@ -7,7 +7,7 @@ let pesan = args.join` `
 let oi = `🎅FELICIDAD NAVIDAD A TODOS 🎅 ${pesan}`
 let teks = `*🤯ACTIVENSE PUEBLO DE ISRAEL 🙌*\n${oi}\n\n*MENCIONES:*\n`
 for (let mem of participants) {
-teks += `☃️🎅🏻ᝰ.ᐟ @${mem.id.split('@')[0]}\n`}
+teks += `👻 @${mem.id.split('@')[0]}\n`}
 teks += `${wm}`
 conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) } )
 }
