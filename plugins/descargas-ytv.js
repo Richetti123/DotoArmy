@@ -25,28 +25,13 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefi
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {
-let qu = args[1] || '360'
-let q = qu + 'p'
-let v = youtubeLink
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
-} catch (E1) {
-//console.log('Error 1 ' + E1)  
-try {  
-let mediaa = await ytMp4(youtubeLink)
-await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `_${wm}_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
-} catch (E2) {  
-//console.log('Error 2 ' + E2)   
-try {
-let lolhuman = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${youtubeLink}`)    
-let lolh = await lolhuman.json()
-let n = lolh.response.title || 'error'
-let n2 = lolh.response.link
-let n3 = lolh.response.size
-let n4 = lolh.response.thumbnail
+let v = youtubeLink;
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
+const dataRET = await dataRE.json();
+let n = dataRET.response.title || 'error'
+let n2 = dataRET.response.link
+let n3 = dataRET.response.size
+let n4 = dataRET.response.thumbnail
 await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch (E3) {
 //console.log('Error 3 ' + E3)   
