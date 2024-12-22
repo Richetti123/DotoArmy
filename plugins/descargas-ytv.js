@@ -34,7 +34,7 @@ await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(E3)}
-}}}
+}
 handler.command = /^video|fgmp4|dlmp4|getvid|yt(v|mp4)?$/i
 export default handler
 
