@@ -32,16 +32,7 @@ await conn.sendMessage(m.chat, dataRET.response.link, 'default.mp3', null, m, fa
 try {
 const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${youtubeLink}`);
 const dataRET = await dataRE.json();
-await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, mimetype: 'audio/mpeg',
-contextInfo: {
-externalAdReply: {
-title: `Disfrute de su audio con ${wm}`,
-body: yt_play[0].title,
-thumbnailUrl: yt_play[0].thumbnail,
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
-}}} , { quoted: m });
+await conn.sendMessage(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mpeg' });
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
